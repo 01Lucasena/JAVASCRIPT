@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculadora">
+        <input class="display" type="text" id="display" readonly>
+        <div class="botoes">
+            <button class="botao-operador" id="botao-percentual" onclick="inserirOperador('%')">%</button>
+            <button class="botao-operador" id="botao-ce" onclick="limparEntrada()">CE</button>
+            <button class="botao-operador" id="botao-c" onclick="limpar()">C</button>
+            <button class="botao-operador" id="botao-excluir" onclick="excluir()">⌫</button>
+            <button class="botao-numero" id="botao-7" onclick="inserirNumero('7')">7</button>
+            <button class="botao-numero" id="botao-8" onclick="inserirNumero('8')">8</button>
+            <button class="botao-numero" id="botao-9" onclick="inserirNumero('9')">9</button>
+            <button class="botao-operador" id="botao-divisao" onclick="inserirOperador('/')">/</button>
+            <button class="botao-numero" id="botao-4" onclick="inserirNumero('4')">4</button>
+            <button class="botao-numero" id="botao-5" onclick="inserirNumero('5')">5</button>
+            <button class="botao-numero" id="botao-6" onclick="inserirNumero('6')">6</button>
+            <button class="botao-operador" id="botao-multiplicacao" onclick="inserirOperador('*')">X</button>
+            <button class="botao-numero" id="botao-1" onclick="inserirNumero('1')">1</button>
+            <button class="botao-numero" id="botao-2" onclick="inserirNumero('2')">2</button>
+            <button class="botao-numero" id="botao-3" onclick="inserirNumero('3')">3</button>
+            <button class="botao-operador" id="botao-subtracao" onclick="inserirOperador('-')">-</button>
+            <button class="botao-operador" id="botao-sinal" onclick="inverterSinal()">+/-</button>
+            <button class="botao-numero" id="botao-0" onclick="inserirNumero('0')">0</button>
+            <button class="botao-numero" id="botao-virgula" onclick="inserirVirgula()">,</button>
+            <button class="botao-operador" id="botao-adicao" onclick="inserirOperador('+')">+</button>
+            <button class="botao-calcular" id="botao-igual" onclick="calcular()">=</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
