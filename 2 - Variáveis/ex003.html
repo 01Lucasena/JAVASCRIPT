@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Variáveis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Variáveis em JavaScript</h1>
+    <p>Exemplo de uso de variáveis em JavaScript.</p>
+    <p>O comando parseFloat() é usado para converter uma string em um número de ponto flutuante.</p>
+    <p>O comando parseInt() é usado para converter uma string em um número inteiro.</p>
+    <script>
+        // Declaração de variáveis
+        let numero1 = parseFloat(window.prompt("Digite o primeiro número:"));
+        let numero2 = parseFloat(window.prompt("Digite o segundo número:")); 
+
+        let soma = numero1 + numero2;
+        let subtracao = numero1 - numero2;
+        let multiplicacao = numero1 * numero2;
+        let divisao = numero1 / numero2;
+
+        let media = (numero1 + numero2) / 2;
+
+        // Exibindo os resultados usando alert
+        window.alert(`Resultados:\nSoma: ${soma}\nSubtração: ${subtracao}\nMultiplicação: ${multiplicacao}\nDivisão: ${divisao}\nMédia: ${media}`); 
+
+    </script>
+</body>
+</html>

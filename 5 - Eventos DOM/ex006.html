@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando Números</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+        input[type="button"] {
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .botao-somar {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .botao-somar:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Somando Valores</h1>
+    <input type="number" name="num1" id="num1">
+    <input type="number" name="num2" id="num2">
+    <input class="botao-somar" type="button" value="Somar" onclick="somar()">
+    <div id="resultado">Resultado</div>
+    <script>
+        function somar() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const resultado = num1 + num2;
+            document.getElementById('resultado').innerText = `Resultado: ${resultado}`;
+        }
+    </script>
+</body>
+</html>
