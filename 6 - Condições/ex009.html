@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Multas</h1>
+    <input type="number" id="velocidade" placeholder="Digite a velocidade do veículo">
+    <button onclick="verificarMulta()">Verificar Multa</button>
+    <p id="resultado"></p>
+
+    <script>
+
+        function verificarMulta() {
+            let velocidade = document.getElementById('velocidade').value;
+            let resultado = document.getElementById('resultado');
+
+            if (velocidade > 80) {
+                resultado.textContent = 'Você foi multado por excesso de velocidade!';
+            } else {
+                resultado.textContent = 'Você está dentro do limite de velocidade.';
+            }
+        }
+
+    </script>
+
+</body>
+</html>
