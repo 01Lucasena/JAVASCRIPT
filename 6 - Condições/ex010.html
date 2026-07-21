@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DETRAN</title>
+    <title>Sistema de Nacionalidade</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,7 +15,7 @@
             font-size: 16px;
             width: 200px;
         }
-        button {
+        .botao-verificar {
             padding: 10px 20px;
             font-size: 16px;
             margin-left: 10px;
@@ -28,25 +28,23 @@
     </style>
 </head>
 <body>
-    <h1>Sistema de Multas</h1>
-    <input type="number" id="velocidade" placeholder="Digite a velocidade do veículo" onkeypress="if(event.key === 'Enter') verificarMulta()">
-    <button onclick="verificarMulta()">Verificar Multa</button>
+    <h1>Verificação de Nacionalidade</h1>
+    <input type="text" id="pais" placeholder="Digite seu país" onkeypress="if(event.key === 'Enter') verificarNacionalidade()">
+    <button class="botao-verificar" onclick="verificarNacionalidade()">Verificar</button>
     <p id="resultado"></p>
 
     <script>
-
-        function verificarMulta() {
-            let velocidade = document.getElementById('velocidade').value;
+        function verificarNacionalidade() {
+            let pais = document.getElementById('pais').value;
             let resultado = document.getElementById('resultado');
 
-            if (velocidade > 80) {
-                resultado.textContent = 'Você foi multado por excesso de velocidade!';
+            if (pais.toLowerCase() === 'brasil') {
+                resultado.textContent = 'Você é Brasileiro!';
             } else {
-                resultado.textContent = 'Você está dentro do limite de velocidade.';
+                resultado.textContent = 'Você é estrangeiro!';
             }
         }
-
     </script>
-
+    
 </body>
 </html>
