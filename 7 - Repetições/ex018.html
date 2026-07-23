@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            width: 300px;
+            height: 200px;
+            margin-top: 20px;
+        }
+        .botoes {
+            margin-top: 20px;
+        }
+        .botao-sim, .botao-nao {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .botao-sim {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        .botao-nao {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+        .botao-sim:hover {
+            background-color: #45a049;
+        }
+        .botao-nao:hover {
+            background-color: #da190b;
+        }
+        #contador {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+        #susto-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #b30000;
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            animation: piscar 0.15s steps(1) infinite;
+        }
+        #susto-overlay.ativo {
+            display: flex;
+        }
+        #susto-texto {
+            color: white;
+            font-size: 15vw;
+            font-weight: bold;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        @keyframes piscar {
+            0%, 100% { background-color: #b30000; }
+            50% { background-color: #000000; }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="pergunta">Você comeria um fubá feito por essa velha querida?</h1>
+    <img src="https://pbs.twimg.com/media/GbF6SdQWUAAUEap.jpg" alt="velha querida">
+    <p>Comer o fubá?</p>
+    <div class="botoes" id="botoes">
+        <button class="botao-sim" onclick="comerFuba()">Sim</button>
+        <button class="botao-nao" onclick="naoComerFuba()">Não</button>
+    </div>
+    <div class="contador" id="contador"></div>
+    <div id="susto-overlay">
+        <div id="susto-texto"> CHEGA!! </div>
+    </div>
+    <script>
+        const botoes = document.getElementById('botoes');
+        const pergunta = document.getElementById('pergunta');
+        const contadorEl = document.getElementById('contador');
+        let tentativas = 0;
+        function renderizarPergunta() {
+            botoes.innerHTML = `
+                <button class="botao-sim" onclick="comerFuba()">Sim</button>
+                <button class="botao-nao" onclick="naoComerFuba()">Não</button>
+            `;
+        }
+
+        function comerFuba() {
+            pergunta.textContent = 'Você comeu o fubá!';
+            botoes.innerHTML = '';
+            contadorEl.textContent = tentativas > 0
+                ? `Levou ${tentativas} recusa(s), mas no fim você cedeu.`
+                : '';
+        }
+
+        const mensagensImpaciencia = [
+            'Tem certeza? Experimenta só um pouquinho...',
+            'Vai, coma o fubá, tá tão bom...',
+            'A velha está começando a franzir a testa...',
+            'Ela cruzou os braços. Você não vai comer mesmo?',
+            'A paciência dela está no fim...',
+            'A velha bateu o pé no chão!',
+            'Ela pegou a colher de pau... só de olhar pra você.',
+            'ÚLTIMO AVISO: coma o fubá.',
+            'A velha não está mais pedindo. Ela está exigindo.',
+            'Você realmente acha que vai sair sem comer o fubá?',
+            'A velha te olhou de cima a baixo. Feio isso.',
+            'A velha pegou a chinela. É sério isso agora.',
+            'Última chance antes que ela perca a paciência de vez!',
+        ];
+
+        function tocarBeep() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'square';
+                osc.frequency.value = 220;
+                gain.gain.value = 0.3;
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.8);
+            } catch (e) {
+        
+            }
+        }
+
+        function dispararSusto() {
+            const overlay = document.getElementById('susto-overlay');
+            overlay.classList.add('ativo');
+            tocarBeep();
+            setTimeout(() => {
+                overlay.classList.remove('ativo');
+            }, 2000);
+        }
+
+        function naoComerFuba() {
+            tentativas++;
+
+            if (tentativas === 14) {
+                dispararSusto();
+                pergunta.textContent = 'Viu só?! Agora come o fubá!';
+                contadorEl.textContent = `Recusou o fubá ${tentativas}x`;
+                botoes.innerHTML = `
+                <button class="botao-sim" onclick="comerFuba()">Sim</button>
+                `;
+                return;
+            }
+            const indice = Math.min(tentativas - 1, mensagensImpaciencia.length - 1);
+            pergunta.textContent = mensagensImpaciencia[indice];
+            contadorEl.textContent = `Recusou o fubá ${tentativas}x`;
+            renderizarPergunta();
+        }
+    </script>
+</body>
+</html>

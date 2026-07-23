@@ -21,7 +21,7 @@
     </style>
 </head>
 <body>
-    <h1 class="mensagem" id="mensagem"><span id="saudacao"></span> Agora são <span id="hora"></span> horas e <span id="minuto"></span> minutos</h1>
+    <h1 class="mensagem" id="mensagem"><span id="saudacao"></span> Agora são <span id="hora"></span>h e <span id="minuto"></span> minutos</h1>
     <h2 class="mensagem-dia" id="mensagem-dia"></h2>
     <script>
         const saudacaoElement = document.getElementById('saudacao');
@@ -32,11 +32,11 @@
         const minuto = agora.getMinutes();
         const diaSemana = agora.getDay();
         const body = document.body;
-        if (hora < 12) {
+        if (hora > 5 && hora < 12) {
             saudacaoElement.textContent = 'Bom dia!';
             mensagemElement.style.color = '#FFA500'; 
             body.style.backgroundColor = '#FFFAE3';
-        } else if (hora < 18) {
+        } else if (hora > 12 && hora < 18) {
             saudacaoElement.textContent = 'Boa tarde!';
             mensagemElement.style.color = '#FF8C00';
             body.style.backgroundColor = '#FFE4B5';
