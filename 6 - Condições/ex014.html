@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .cabecalho {
+            margin-bottom: 20px;
+        }
+        .titulo-cabecalho {
+            font-size: 24px;
+            color: #333;
+        }
+        .conteudo {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+        }
+        .botao-verificar {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .legenda {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="cabecalho">
+        <h1 class="titulo-cabecalho">Verificando idade do eleitor</h1>
+    </div>
+    <div class="conteudo">
+        <input type="text" id="idade" placeholder="Digite sua idade" onkeypress="if(event.key === 'Enter') verificarIdade()">
+        <button class="botao-verificar" onclick="verificarIdade()">Verificar</button>
+        <p id="resultado"></p>
+    </div>
+    <div class="legenda">
+        <p><strong>Legenda:</strong></p>
+        <p>- Não vota: Idade menor que 16 anos</p>
+        <p>- Voto opcional: Idade entre 16 e 18 anos ou maior que 65 anos</p>
+        <p>- Voto obrigatório: Idade entre 18 e 65 anos</p>
+    </div>
+    <script>
+        function verificarIdade() {
+            const idade = parseInt(document.getElementById('idade').value);
+            const resultado = document.getElementById('resultado');
+
+            if (idade < 16) {
+                resultado.textContent = 'Você não está apto(a) a votar.';
+                resultado.style.color = 'red';
+            } else if (idade < 18 && idade >= 16 || idade > 65) {
+                resultado.textContent = 'Seu voto é opcional.';
+                resultado.style.color = 'orange';
+            } else {
+                resultado.textContent = 'Seu voto é obrigatório.';
+                resultado.style.color = 'green';
+            }
+        }
+    </script>
+    
+</body>
+</html>

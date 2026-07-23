@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .mensagem {
+            font-size: 34px;
+            margin-top: 25%;
+        }
+        .mensagem-dia {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="mensagem" id="mensagem"><span id="saudacao"></span> Agora são <span id="hora"></span> horas e <span id="minuto"></span> minutos</h1>
+    <h2 class="mensagem-dia" id="mensagem-dia"></h2>
+    <script>
+        const saudacaoElement = document.getElementById('saudacao');
+        const mensagemElement = document.getElementById('mensagem');
+        const mensagemDiaElement = document.getElementById('mensagem-dia');
+        const agora = new Date();
+        const hora = agora.getHours();
+        const minuto = agora.getMinutes();
+        const diaSemana = agora.getDay();
+        const body = document.body;
+        if (hora < 12) {
+            saudacaoElement.textContent = 'Bom dia!';
+            mensagemElement.style.color = '#FFA500'; 
+            body.style.backgroundColor = '#FFFAE3';
+        } else if (hora < 18) {
+            saudacaoElement.textContent = 'Boa tarde!';
+            mensagemElement.style.color = '#FF8C00';
+            body.style.backgroundColor = '#FFE4B5';
+        } else {
+            saudacaoElement.textContent = 'Boa noite!';
+            mensagemElement.style.color = '#FFFFFF';
+            body.style.backgroundColor = '#191970';
+        }
+        document.getElementById('hora').textContent = hora;
+        document.getElementById('minuto').textContent = minuto;
+        switch (diaSemana) {
+            case 0:
+                mensagemDiaElement.textContent = 'Hoje é domingo.';
+                break;
+            case 1:
+                mensagemDiaElement.textContent = 'Hoje é segunda-feira.';
+                break;
+            case 2:
+                mensagemDiaElement.textContent = 'Hoje é terça-feira.';
+                break;
+            case 3:
+                mensagemDiaElement.textContent = 'Hoje é quarta-feira.';
+                break;
+            case 4:
+                mensagemDiaElement.textContent = 'Hoje é quinta-feira.';
+                break;
+            case 5:
+                mensagemDiaElement.textContent = 'Hoje é sexta-feira.';
+                break;
+            case 6:
+                mensagemDiaElement.textContent = 'Hoje é sábado.';
+                break;
+        }
+    </script>
+</body>
+</html>
