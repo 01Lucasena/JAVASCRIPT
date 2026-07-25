@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade com IA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    <section>
+        <div>
+            <p>Ano de Nascimento:
+                <input type="number" name="anoNascimento" id="anoNascimento">
+            </p>
+            <p id="mensagemErro"></p>
+            <p>Gênero:
+                <input type="radio" name="gen" id="homem" checked>
+                <label for="homem">Masculino</label>
+                <input type="radio" name="gen" id="mulher">
+                <label for="mulher">Feminino</label>
+                <input type="radio" name="gen" id="nb">
+                <label for="nb">Não Binário</label>
+            </p>
+            <p>
+                <button id="botaoVerificar" onclick="verificar()">Verificar</button>
+            </p>
+        </div>
+        <div id="resultado">
+            Preencha os dados acima para ver o resultado!
+        </div>
+        <p id="loading" style="display:none;">Gerando imagem, aguarde...</p>
+        <img id="foto" alt="Retrato gerado" style="display:none;">
+        <div id="loading" style="display:none;">
+        <div class="spinner"></div>
+            <span>Gerando imagem, aguarde...</span>
+        </div>
+    </section>
+    <footer>
+        <p>Desenvolvido por Lucas Sena</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

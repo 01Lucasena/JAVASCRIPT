@@ -1,0 +1,161 @@
+body {
+    background: rgb(205, 205, 255);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    color: white;
+    text-align: center;
+}
+
+section {
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 32px;
+    background: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    font-family: inherit;
+}
+
+section > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+section p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+section input[type="number"] {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+section input[type="number"]:focus {
+    outline: none;
+    border-color: #555;
+}
+
+section #mensagemErro {
+    font-size: 13px;
+    min-height: 16px;
+}
+
+
+section p:has(input[type="radio"]) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+section input[type="radio"] {
+    accent-color: #333;
+    margin-left: 10px;
+}
+
+section input[type="radio"]:first-of-type {
+    margin-left: 0;
+}
+
+section label {
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+section button {
+    padding: 12px 20px;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background .15s ease;
+}
+
+section button:hover {
+    background: #444;
+}
+
+section button:active {
+    background: #111;
+}
+
+section #resultado {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+section #loading {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+section .spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ddd;
+    border-top: 3px solid #333;
+    border-radius: 50%;
+    animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+section #foto {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+
+#loading {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+}
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ddd;
+    border-top: 3px solid #333;
+    border-radius: 50%;
+    animation: girar 0.8s linear infinite;
+}
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
