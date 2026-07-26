@@ -18,6 +18,11 @@ section {
     font-family: inherit;
 }
 
+.radio{
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
 section > div:first-child {
     display: flex;
     flex-direction: column;

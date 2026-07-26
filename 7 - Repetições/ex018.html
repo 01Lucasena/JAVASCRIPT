@@ -77,7 +77,7 @@
 <body>
     <h1 id="pergunta">Você comeria um fubá feito por essa velha querida?</h1>
     <img src="https://pbs.twimg.com/media/GbF6SdQWUAAUEap.jpg" alt="velha querida">
-    <p>Comer o fubá?</p>
+    <p id="text">Comer o fubá?</p>
     <div class="botoes" id="botoes">
         <button class="botao-sim" onclick="comerFuba()">Sim</button>
         <button class="botao-nao" onclick="naoComerFuba()">Não</button>
@@ -90,6 +90,7 @@
         const botoes = document.getElementById('botoes');
         const pergunta = document.getElementById('pergunta');
         const contadorEl = document.getElementById('contador');
+        const text = document.getElementById('text')
         let tentativas = 0;
         function renderizarPergunta() {
             botoes.innerHTML = `
@@ -101,6 +102,7 @@
         function comerFuba() {
             pergunta.textContent = 'Você comeu o fubá!';
             botoes.innerHTML = '';
+            text.innerHTML = '';
             contadorEl.textContent = tentativas > 0
                 ? `Levou ${tentativas} recusa(s), mas no fim você cedeu.`
                 : '';
