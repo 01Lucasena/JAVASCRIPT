@@ -49,7 +49,7 @@ function verificar(){
         genero = 'Não Binário'
     }
 
-    resultado.innerText = `Idade: ${idade} anos e Gênero: ${genero}`
+    resultado.innerText = `Idade: ${idade} anos, Gênero: ${genero}`
 
     const prompt = montarPrompt(idade, genero)
     const promptCodificado = encodeURIComponent(prompt)
