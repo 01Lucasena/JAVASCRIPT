@@ -1,0 +1,90 @@
+body {
+    background: rgb(205, 205, 255);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    color: white;
+    text-align: center;
+}
+
+section {
+    display: flex;
+    width: 600px;
+    height: auto, fit-content;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form{
+    margin-top: 50px;
+}
+
+.resultado{
+    margin-top: 50px;
+}
+
+#numero {
+    padding: 0.7rem 1rem;
+    font-size: small;
+    font-style: italic;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 220px;
+    transition: border-color 0.2s ease;
+}
+
+#resposta{
+    margin-top: 20px;
+}
+
+#numero:focus {
+    outline: none;
+    border-color: #2c3e50;
+}
+
+.botao-analisar, .botao-adicionar {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 20px;
+}
+
+.botao-analisar:hover, .botao-adicionar:hover{
+    background-color: #617d9a;
+}
+
+
+#lista {
+
+    width: 260px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #fff;
+}
+
+#lista option {
+    padding: 0.4rem;
+    border-radius: 4px;
+}
+
+#lista option:hover {
+    background-color: #ecf0f1;
+}
+
+footer {
+    text-align: center;
+    font-style: italic;
+    color: white;
+}
